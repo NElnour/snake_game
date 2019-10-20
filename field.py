@@ -63,3 +63,15 @@ class Field:
         TODO: add a method body and write a doctest
         """
         pass
+
+    def get_snake_head(self) -> tuple:
+        """Return location of snake head on board
+        TODO: add a method body and write a doctest
+        """
+        pass
+
+    def get_snake_tail(self) -> tuple:
+        """Return location of snake tail on board
+        TODO: add a method body and write a doctest
+        """
+        pass
