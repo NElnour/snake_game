@@ -13,10 +13,12 @@ class Game:
     _field: an instance of a field class representing a game field.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, l:int, w:int) -> None:
         """Initializes a snake class and field class
         TODO: write a doctest
         """
+        self.dim = (l, w)
+        self.board = pygame.Rect(0, 0, l, w)
         self._field = Field()
 
     def main(self) -> None:
@@ -32,13 +34,37 @@ class Game:
         if the game over condition is met.
         TODO: add a method body and write a doctest
         """
+
+        boundaries = [(0, 0),
+                      (0, self.dim[0]),
+                      (0, self.dim[1]),
+                      self.dim]
+
+        if self._field.get_snake_head() in boundaries or \
+                self._field.get_snake_head() == self._field.get_snake_tail():
+            return True
+
         return False
 
-    def _run_game(self) -> None:
+    @staticmethod
+    def _run_game() -> None:
         """ recursively call this method until the game is over.
         This method should receive user inputs and update state of a field
         TODO: add a method body and write a doctest
         """
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                quit()
+            elif event.type == KEYDOWN:
+                pass
+
+        # clear scrren
+        # update screen
+
+        # check if snake hit boundaries -- > yes = goto end game; no = draw
+
+        # check if snake ate its tail -- > yes = goto end game; no = draw
 
 
 if __name__ == "__main__":
