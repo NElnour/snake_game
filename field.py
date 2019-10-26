@@ -50,7 +50,9 @@ class Field:
         This method iterate snake's body and
         call 'draw_snake_body_parts' to draw it on the field
         """
-        pass
+        snake_list = _snake.get_body_coordinates()
+        for i in snake_list:
+            pygame.draw.rect(window,(0,0,0),(i[0],i[1],10,10))
 
     def _draw_snake_body(self) -> None:
         """Draw a block representing a snake's body
