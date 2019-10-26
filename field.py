@@ -53,7 +53,7 @@ class Field:
         """
         snake_list = _snake.get_body_coordinates()
         for i in snake_list:
-            pygame.draw.rect(window,(0,0,0),(i[0],i[1],10,10))
+            pygame.draw.rect(window,(0,0,0),(i[0]*10,i[1]*10,10,10))
 
     def _draw_snake_body(self) -> None:
         """Draw a block representing a snake's body
@@ -81,7 +81,7 @@ class Field:
         """Draw an apple on the field
         TODO: write a doctest
         """
-        pygame.draw.rect(window,(255,0,0),(_appleX,_appleY,10,10))
+        pygame.draw.rect(window,(255,0,0),(_appleX*10,_appleY*10,10,10))
 
     def get_snake_head(self) -> tuple:
         """Return location of snake head on board
