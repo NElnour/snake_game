@@ -69,7 +69,7 @@ class Field:
         """Draw an apple on the field
         TODO: add a method body and write a doctest
         """
-        pass
+        pygame.draw.rect(window,(255,0,0),(_appleX,_appleY,10,10))
 
     def get_snake_head(self) -> tuple:
         """Return location of snake head on board
