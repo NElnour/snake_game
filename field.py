@@ -1,6 +1,7 @@
 from __future__ import annotations
 from snake import Snake
 import pygame
+import random
 from pygame.locals import *
 import sys
 
@@ -60,12 +61,21 @@ class Field:
         """
         pass
 
-    def _create_apple(self) -> None:
+    def create_apple(self) -> None:
         """Randomly generate an apple on the field such that
         it does not appear inside the field and not on the snake's body
-        TODO: add a method body and write a doctest
+        TODO:  write a doctest
         """
-        pass
+        temp_X = 0
+        temp_Y = 0
+        loop_condition = True
+        snake_list = snake.get_body_coordinates()
+        while loop_conition:
+            temp_X = random.randint(0,30)
+            temp_Y = random.randint(0,30)
+            for i in snake_list:    #Check temp coordinates not in snake
+                if temp_X != i[0] and temp_Y != i[1]:
+                    loop_condition = False
 
     def _draw_apple(self) -> None:
         """Draw an apple on the field
