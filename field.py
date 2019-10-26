@@ -15,17 +15,15 @@ class Field:
     _appleX: a x coordinate of an apple in the field
     _appleY: a y coordinate of an apple in the field
     """
-    
+
     _snake: Snake
     _appleX: int
     _appleY: int
 
-    def __init__(self):
+    def __init__(self,game_surface):
         """Initialize a field
-        """        
-        self.window = pygame.display.set_mode((300,300))
-        pygame.display.set_caption('Snake')
-
+        """
+        self.window = game_surface
         self._snake = Snake()
         self._appleX, self._appleY = 200, 200
         self.display_field()
