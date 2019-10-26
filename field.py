@@ -73,9 +73,9 @@ class Field:
 
     def get_snake_head(self) -> tuple:
         """Return location of snake head on board
-        TODO: add a method body and write a doctest
+        TODO: write a doctest
         """
-        pass
+        return _snake.get_head()
 
     def get_snake_tail(self) -> tuple:
         """Return location of snake tail on board
