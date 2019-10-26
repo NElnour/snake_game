@@ -32,7 +32,7 @@ class Field:
     def display_field(self) -> None:
         """Draw the state of the field
         Clear the field first and create a new field
-        TODO: add a method body and write a doctest
+        TODO: write a doctest
         """
         window.fill((255,255,255)) #clear field
         self._draw_snake()
@@ -67,7 +67,7 @@ class Field:
 
     def _draw_apple(self) -> None:
         """Draw an apple on the field
-        TODO: add a method body and write a doctest
+        TODO: write a doctest
         """
         pygame.draw.rect(window,(255,0,0),(_appleX,_appleY,10,10))
 
