@@ -34,7 +34,10 @@ class Field:
         Clear the field first and create a new field
         TODO: add a method body and write a doctest
         """
-        pass
+        window.fill((255,255,255)) #clear field
+        self._draw_snake()
+        self._draw_apple()
+        pygame.display.flip()
 
     def _clear_field(self) -> None:
         """Clear the field and generate new field
