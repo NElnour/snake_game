@@ -1,8 +1,10 @@
 from __future__ import annotations
 
-from snake import Snake
-import pygame
 import random
+
+import pygame
+
+from snake import Snake
 
 
 class Field:
@@ -19,7 +21,7 @@ class Field:
     _appleX: int
     _appleY: int
 
-    def __init__(self,game_surface):
+    def __init__(self, game_surface):
         """Initialize a field
         """
         self.window = game_surface
@@ -32,7 +34,7 @@ class Field:
         Clear the field first and create a new field
         TODO: write a doctest
         """
-        self.window.fill((255,255,255)) #clear field
+        self.window.fill((255, 255, 255))  # clear field
         self._draw_snake()
         self._draw_apple()
         pygame.display.flip()
@@ -50,7 +52,8 @@ class Field:
         """
         snake_list = self._snake.get_body_coordinates()
         for i in snake_list:
-            pygame.draw.rect(self.window,(0,0,0),(i[0]*10,i[1]*10,10,10))
+            pygame.draw.rect(self.window, (0, 0, 0),
+                             (i[0] * 10, i[1] * 10, 10, 10))
 
     def _draw_snake_body(self) -> None:
         """Draw a block representing a snake's body
@@ -63,13 +66,13 @@ class Field:
         it does not appear inside the field and not on the snake's body
         TODO:  write a doctest
         """
-        
+
         loop_condition = True
         snake_list = self.snake.get_body_coordinates()
         while loop_condition:
-            temp_X = random.randint(0,30)
-            temp_Y = random.randint(0,30)
-            for i in snake_list:    #Check temp coordinates not in snake
+            temp_X = random.randint(0, 30)
+            temp_Y = random.randint(0, 30)
+            for i in snake_list:  # Check temp coordinates not in snake
                 if temp_X != i[0] and temp_Y != i[1]:
                     loop_condition = False
 
