@@ -11,10 +11,10 @@ class Snake:
 
     === Attributes ===
     _head: represents snake's head. this must be the first element in _body
-    _body: represents snake's body.
+    _body: represents snake's body
     _dx: horizontal velocity of snake's body
     _dy: vertical velocity of snake's body
-    _direction: handle snake's direction.
+    _direction: handle snake's direction
     """
     head: SnakeNode
     body: List[SnakeNode]
@@ -23,7 +23,7 @@ class Snake:
     _direction: str
 
     def __init__(self):
-        """Initialize snake's body
+        """Initialize snake's body.
         The snake initially moves to the right.
         TODO: add doctests
         """
