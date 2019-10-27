@@ -12,7 +12,7 @@ class Game:
     This class receives inputs from users and pass the inputs to other classes
     to update the state of a field.
     === Attributes ===
-    _field: an instance of a field class representing a game field.
+    _field: an instance of a field class representing a game field
     _
     """
     # Attributes
@@ -29,18 +29,17 @@ class Game:
     TITLE_SCREEN_COLOR = (0, 0, 80)
 
     def __init__(self) -> None:
-        """Initializer of game class
-        Field class will be generated in main method
+        """Initializes Game class
         TODO: write a doctest
         """
-        self._dim = (400, 400)
+        self._dim = (300, 300)
         self._in_game = False
         self._menu_index = 0
         self._field = None
 
     def main(self) -> None:
-        """ run the game. The loop continues until
-        either the snake hits the wall or eats his tail.
+        """Run the game. The loop continues until
+        either the snake hits the wall or eats his tail
         TODO: write a doctest
         """
         # Initialize pygame, generate screen and field
@@ -56,7 +55,7 @@ class Game:
             clock.tick(fps)
 
     def _init_screen(self) -> pygame.Surface:
-        """Initialize title screen"""
+        """Initialize title screen."""
         screen = pygame.display.set_mode((600, 600))
         screen.fill(self.TITLE_SCREEN_COLOR)
         pygame.display.set_caption("Snake game")
@@ -65,7 +64,7 @@ class Game:
         return screen
 
     def _clear_title_screen(self, screen: pygame.Surface) -> None:
-        """Clear title screen and draw title and menu options"""
+        """Clear title screen and draw title and menu options."""
         screen.fill(self.TITLE_SCREEN_COLOR)
         title_font = pygame.font.SysFont("monospace", 80)
         title_label = title_font.render("Snake game", 1, (255, 255, 255))
@@ -76,7 +75,7 @@ class Game:
         self._create_menu_label(screen, "Quit", (270, 420))
 
     def _display_title_screen(self, screen: pygame.Surface) -> None:
-        """Draw menu option arrow and update view"""
+        """Draw menu option arrow and update view."""
         # Clear current view contents
         self._clear_title_screen(screen)
         # Receive user inputs
@@ -92,7 +91,7 @@ class Game:
         pygame.display.update()
 
     def _menu_selection_handler(self, key_value: int) -> None:
-        """Handle key inputs in title screen"""
+        """Handle key inputs in title screen."""
         if key_value == pygame.K_UP:
             self._menu_index -= 1
             if self._menu_index < 0:
@@ -113,7 +112,7 @@ class Game:
 
     def _create_menu_label(self, screen: pygame.Surface, label_text: str,
                            location: Tuple[int, int]) -> None:
-        """Draw menu label from given label text at given location"""
+        """Draw menu label from given label text at given location."""
         menu_font = pygame.font.SysFont("monospace", 40)
         menu_label = menu_font.render(label_text, 1, self.COLOR_WHITE)
         screen.blit(menu_label, location)
@@ -126,7 +125,7 @@ class Game:
         pygame.draw.polygon(screen, self.COLOR_WHITE, menu_arrow_location)
 
     def _is_game_over(self) -> bool:
-        """ check the state of a field and return true
+        """Check the state of a field and return true
         if the game over condition is met.
         TODO: and write a doctest
         """
