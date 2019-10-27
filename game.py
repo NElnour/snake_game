@@ -1,8 +1,9 @@
+import sys
+from typing import Tuple, Optional
+
 import pygame
 from pygame.locals import *
-from pygame.time import Clock
-from typing import Tuple, Optional
-import sys
+
 from field import Field
 
 
@@ -22,6 +23,7 @@ class Game:
 
     def __init__(self, l: int, w: int) -> None:
         """Initializes a snake class and field class"""
+
     # Constants
     COLOR_WHITE = (255, 255, 255)
     TITLE_SCREEN_COLOR = (0, 0, 80)
@@ -85,7 +87,8 @@ class Game:
             elif event.type == KEYDOWN:
                 self._menu_selection_handler(event.type)
         # Draw menu selection arrow
-        self._draw_menu_selection_arrow(screen, [300, 360, 420][self._menu_index])
+        self._draw_menu_selection_arrow(screen,
+                                        [300, 360, 420][self._menu_index])
         pygame.display.update()
 
     def _menu_selection_handler(self, key_value: int) -> None:
@@ -108,15 +111,18 @@ class Game:
                 pygame.quit()
                 sys.exit()
 
-    def _create_menu_label(self, screen: pygame.Surface, label_text: str, location: Tuple[int, int]) -> None:
+    def _create_menu_label(self, screen: pygame.Surface, label_text: str,
+                           location: Tuple[int, int]) -> None:
         """Draw menu label from given label text at given location"""
         menu_font = pygame.font.SysFont("monospace", 40)
         menu_label = menu_font.render(label_text, 1, self.COLOR_WHITE)
         screen.blit(menu_label, location)
 
-    def _draw_menu_selection_arrow(self, screen: pygame.Surface, y_location: int) -> None:
+    def _draw_menu_selection_arrow(self, screen: pygame.Surface,
+                                   y_location: int) -> None:
         """Draw menu selection arrow into screen"""
-        menu_arrow_location = [[200, y_location + 2], [200, y_location + 22], [220, y_location + 12]]
+        menu_arrow_location = [[200, y_location + 2], [200, y_location + 22],
+                               [220, y_location + 12]]
         pygame.draw.polygon(screen, self.COLOR_WHITE, menu_arrow_location)
 
     def _is_game_over(self) -> bool:
