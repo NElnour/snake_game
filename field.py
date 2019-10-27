@@ -4,7 +4,9 @@ import random
 
 import pygame
 
-from snake import Snake
+from snake import Snake, SnakeNode
+
+COLOR_WHITE = (255, 255, 255)
 
 
 class Field:
@@ -12,16 +14,15 @@ class Field:
     It also updates and displays the field
     The size of a field is 300 x 300 and each grid should have size 10 x 10
     === Attributes ===
-    -snake: an instance of snake in the field
+    _snake: an instance of snake in the field
     _appleX: a x coordinate of an apple in the field
     _appleY: a y coordinate of an apple in the field
     """
-
     _snake: Snake
     _appleX: int
     _appleY: int
 
-    def __init__(self, game_surface):
+    def __init__(self, game_surface: object):
         """Initialize a field
         """
         self.window = game_surface
@@ -34,7 +35,7 @@ class Field:
         Clear the field first and create a new field
         TODO: write a doctest
         """
-        self.window.fill((255, 255, 255))  # clear field
+        self.window.fill(COLOR_WHITE)  # clear field
         self._draw_snake()
         self._draw_apple()
         pygame.display.flip()
@@ -83,14 +84,14 @@ class Field:
         pygame.draw.rect(self.window, (255, 0, 0), (self._appleX * 10,
                                                     self._appleY * 10, 10, 10))
 
-    def get_snake_head(self) -> tuple:
+    def get_snake_head(self) -> SnakeNode:
         """Return location of snake head on board
         TODO: write a doctest
         """
         return self._snake.get_head()
 
-    def get_snake_tail(self) -> tuple:
+    def get_snake_tail(self) -> SnakeNode:
         """Return location of snake tail on board
         TODO: write a doctest
         """
-        return self._snake.get_coordinates()[-1]
+        return self._snake.get_body_coordinates()[-1]
