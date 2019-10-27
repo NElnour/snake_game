@@ -22,7 +22,7 @@ class Field:
     _appleX: int
     _appleY: int
 
-    def __init__(self, game_surface: object):
+    def __init__(self, game_surface: pygame.Surface):
         """Initialize a field
         """
         self.window = game_surface
