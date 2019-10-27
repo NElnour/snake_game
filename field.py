@@ -74,6 +74,8 @@ class Field:
             for i in snake_list:    #Check temp coordinates not in snake
                 if temp_X != i[0] and temp_Y != i[1]:
                     loop_condition = False
+        _apple_X = temp_X
+        _apple_Y = temp_Y
 
     def _draw_apple(self) -> None:
         """Draw an apple on the field
