@@ -17,15 +17,15 @@ class Field:
     """
 
     _snake: Snake
-    _appleX: int
-    _appleY: int
+    _apple_X: int
+    _apple_Y: int
 
     def __init__(self,game_surface):
         """Initialize a field
         """
         self.window = game_surface
         self._snake = Snake()
-        self._appleX, self._appleY = 200, 200
+        self._apple_X, self._apple_Y = 200, 200
         self.display_field()
 
     def display_field(self) -> None:
@@ -79,7 +79,7 @@ class Field:
         """Draw an apple on the field
         TODO: write a doctest
         """
-        pygame.draw.rect(window,(255,0,0),(_appleX*10,_appleY*10,10,10))
+        pygame.draw.rect(window,(255,0,0),(_apple_X*10,_apple_Y*10,10,10))
 
     def get_snake_head(self) -> tuple:
         """Return location of snake head on board
