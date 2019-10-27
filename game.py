@@ -21,9 +21,6 @@ class Game:
     _menu_index: int
     _field: Optional[Field]
 
-    def __init__(self, l: int, w: int) -> None:
-        """Initializes a snake class and field class"""
-
     # Constants
     COLOR_WHITE = (255, 255, 255)
     TITLE_SCREEN_COLOR = (0, 0, 80)
