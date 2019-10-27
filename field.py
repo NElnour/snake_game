@@ -63,8 +63,7 @@ class Field:
         it does not appear inside the field and not on the snake's body
         TODO:  write a doctest
         """
-        temp_X = 0
-        temp_Y = 0
+        
         loop_condition = True
         snake_list = self.snake.get_body_coordinates()
         while loop_condition:
