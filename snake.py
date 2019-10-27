@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from typing import List, Tuple
 
 
@@ -9,7 +10,7 @@ class Snake:
     When he hits the wall or eats his tail, the game is over.
 
     === Attributes ===
-    _head: represents snake's head. this must be the first element in _body.
+    _head: represents snake's head. this must be the first element in _body
     _body: represents snake's body.
     _dx: horizontal velocity of snake's body
     _dy: vertical velocity of snake's body
@@ -61,6 +62,7 @@ class SnakeNode:
     x: x-coordinate of this node
     y: y-coordinate of this node
     """
+
     def __init__(self, x, y) -> None:
         self.x = x
         self.y = y

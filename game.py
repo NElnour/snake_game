@@ -1,8 +1,7 @@
 import pygame
 from pygame.locals import *
-import sys
+
 from field import Field
-from snake import Snake
 
 
 class Game:
@@ -13,7 +12,7 @@ class Game:
     _field: an instance of a field class representing a game field.
     """
 
-    def __init__(self, l:int, w:int) -> None:
+    def __init__(self, l: int, w: int) -> None:
         """Initializes a snake class and field class
         TODO: write a doctest
         """
@@ -59,12 +58,13 @@ class Game:
             elif event.type == KEYDOWN:
                 pass
 
-        # clear scrren
-        # update screen
 
-        # check if snake hit boundaries -- > yes = goto end game; no = draw
+# clear screen
+# update screen
 
-        # check if snake ate its tail -- > yes = goto end game; no = draw
+# check if snake hit boundaries -- > yes = goto end game; no = draw
+
+# check if snake ate its tail -- > yes = goto end game; no = draw
 
 
 if __name__ == "__main__":

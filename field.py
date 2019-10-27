@@ -1,8 +1,6 @@
 from __future__ import annotations
+
 from snake import Snake
-import pygame
-from pygame.locals import *
-import sys
 
 
 class Field:
@@ -10,7 +8,7 @@ class Field:
     It also updates and displays the field
     The size of a field is 300 x 300 and each grid should have size 10 x 10
     === Attributes ===
-    _snake: an instance of snake in the field
+    -snake: an instance of snake in the field
     _appleX: a x coordinate of an apple in the field
     _appleY: a y coordinate of an apple in the field
     """
