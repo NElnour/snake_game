@@ -12,8 +12,9 @@ class Game:
     This class receives inputs from users and pass the inputs to other classes
     to update the state of a field.
     === Attributes ===
-    _field: an instance of a field class representing a game field
-    _
+    _field: an instance of a field class representing a game field.
+    _in_game: declares if the window displays the game view
+    _menu_index: keeps the record of selected_menu
     """
     # Attributes
     _dim: Tuple[int, int]
@@ -81,14 +82,14 @@ class Game:
                 pygame.quit()
                 sys.exit()
             elif event.type == KEYDOWN:
-                self._menu_selection_handler(event.type)
+                self._handle_key_input(event.key)
         # Draw menu selection arrow
         self._draw_menu_selection_arrow(screen,
                                         [300, 360, 420][self._menu_index])
         pygame.display.update()
 
-    def _menu_selection_handler(self, key_value: int) -> None:
-        """Handle key inputs in title screen."""
+    def _handle_key_input(self, key_value: int) -> None:
+        """Handle key inputs in title screen"""
         if key_value == pygame.K_UP:
             self._menu_index -= 1
             if self._menu_index < 0:
@@ -137,11 +138,12 @@ class Game:
 
         return False
 
-    def _run_game(self) -> None:
+    def _run_game(self, screen: pygame.Surface) -> None:
         """ recursively call this method until the game is over.
         This method should receive user inputs and update state of a field
         TODO: add a method body and write a doctest
         """
+        self._field.display_field()
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -150,13 +152,13 @@ class Game:
                 # TODO pass key event to snake or field to draw
                 self._field.display_field()
 
+        pygame.display.update()
+        # clear screen
+        # update screen
 
-# clear screen
-# update screen
+        # check if snake hit boundaries -- > yes = goto end game; no = draw
 
-# check if snake hit boundaries -- > yes = goto end game; no = draw
-
-# check if snake ate its tail -- > yes = goto end game; no = draw
+        # check if snake ate its tail -- > yes = goto end game; no = draw
 
 
 if __name__ == "__main__":

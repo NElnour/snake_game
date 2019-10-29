@@ -27,7 +27,7 @@ class Snake:
         The snake initially moves to the right.
         TODO: add doctests
         """
-        self._body = [SnakeNode(150, 150 - i * 10) for i in range(5)]
+        self._body = [SnakeNode(300 - i * 10, 300) for i in range(5)]
         self._head = self._body[0]
         self._dx, self.dy = 10, 0
 
@@ -46,13 +46,13 @@ class Snake:
         """
         pass
 
-    def get_body_coordinates(self) -> List[SnakeNode]:
-        """Returns the snake's head"""
-        return self.body
+    def get_bodies(self) -> List[SnakeNode]:
+        """Returns the snake's body"""
+        return self._body
 
     def get_head(self) -> SnakeNode:
         """Returns the snake's head"""
-        return self.head
+        return self._head
 
 
 class SnakeNode:
